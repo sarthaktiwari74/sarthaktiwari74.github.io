@@ -12,9 +12,16 @@ async function getQuote() {
         }
 
         const data = await response.json();
-        console.log(data);
+        console.log(data.question);
+        displayQuote(data.question);
     } catch (error) {
         console.error(error);
         alert("Could not load trivia.");
     }
 }
+
+function displayQuote(quote) {
+    document.querySelector("#js-quote-text").textContent = quote;
+}
+
+getQuote();

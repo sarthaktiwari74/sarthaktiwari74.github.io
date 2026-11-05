@@ -1,7 +1,20 @@
 const quoteButton = document.querySelector("#js-new-quote");
+const endpoint = "https://trivia.cyberwisp.com/getrandomchristmasquestion";
 
 quoteButton.addEventListener("click", getQuote);
 
-function getQuote() {
-    console.log("Button clicked!");
+async function getQuote() {
+    try {
+        const response = await fetch(endpoint);
+
+        if (!response.ok) {
+            throw new Error("Could not load trivia.");
+        }
+
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+        alert("Could not load trivia.");
+    }
 }

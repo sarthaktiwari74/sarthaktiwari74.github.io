@@ -56,3 +56,34 @@ class Ball {
   }
 }
 // array for balls
+const balls = [];
+
+while (balls.length < 25) {
+  const size = random(10, 20);
+
+  const ball = new Ball(
+    random(size, width - size),
+    random(size, height - size),
+    random(-7, 7),
+    random(-7, 7),
+    randomRGB(),
+    size
+  );
+
+  balls.push(ball);
+}
+
+function loop() {
+  ctx.fillStyle = "rgb(0 0 0 / 25%)";
+  ctx.fillRect(0, 0, width, height);
+
+  for (const ball of balls) {
+    ball.draw();
+    ball.update();
+  }
+
+  requestAnimationFrame(loop);
+}
+
+loop();
+//makes 25 balls with random properties to bounce around the screen

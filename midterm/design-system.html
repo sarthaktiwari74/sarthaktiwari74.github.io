@@ -8,20 +8,20 @@
         /* CSS Reset and Base Styles */
         :root {
             /* Color Palette - 5 Core Colors */
-            --color-primary: #3498db;     /* Vibrant Blue - Main Brand Color */
-            --color-secondary: #2ecc71;   /* Emerald Green - Complementary Action Color */
-            --color-accent: #e74c3c;      /* Passionate Red - Highlight / Warning Color */
-            --color-neutral: #34495e;     /* Deep Slate Gray - Neutral Text and Background */
-            --color-highlight: #f1c40f;   /* Bright Yellow - Accent / Attention Color */
-            
+             --color-primary: #6369D1;   /* Indigo */
+            --color-secondary: #60E1E0; /* Aqua */
+            --color-accent: #B88E8D;    /* Rosy taupe */
+            --color-neutral: #34435E;   /* Dark navy */
+            --color-highlight: #D8D2E1; /* Lavender */
+
             /* Derived Colors for Flexibility */
-            --color-background: color-mix(in srgb, var(--color-neutral) 10%, white);
+             --color-background: var(--color-highlight);
             --color-text-dark: var(--color-neutral);
-            --color-text-light: white;
+            --color-text-light: var(--color-highlight);
 
             /* Typography */
-            --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-secondary: 'Roboto Mono', monospace;
+            --font-primary: "proxima-soft", sans-serif;
+            --font-secondary: "omnes-pro", sans-serif;
 
             /* Spacing System */
             --spacing-xs: 0.25rem;
@@ -86,7 +86,11 @@
             font-size: 0.75rem;
             color: color-mix(in srgb, var(--color-text-dark) 70%, transparent);
         }
-
+            
+        h1, h2, h3 {
+             font-family: var(--font-secondary);
+             font-weight: 700;
+             }
         /* Color Palette Section */
         .color-palette {
             display: grid;
@@ -157,39 +161,49 @@
             height: 50px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/gst7grw.css">
 </head>
 <body>
     <div class="container">
         <h1>Design System Template</h1>
 
-        <section>
+                <section>
             <h2>Color Palette</h2>
+
             <div class="color-palette">
-                <div class="color-swatch" style="background-color: var(--color-primary); color: var(--color-text-light);">
-                    <strong>Primary Color</strong>
-                    <p>#3498db</p>
-                    <small>Contrast Ratio: 4.6:1</small>
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-primary);">
+                    <strong>Indigo — Primary</strong>
+                    <p>#6369D1</p>
+                    <small>On lavender: 3.18:1 — large text only</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-secondary); color: var(--color-text-light);">
-                    <strong>Secondary Color</strong>
-                    <p>#2ecc71</p>
-                    <small>Contrast Ratio: 4.8:1</small>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-secondary);">
+                    <strong>Aqua — Secondary</strong>
+                    <p>#60E1E0</p>
+                    <small>Navy text on aqua: 6.32:1 — AA</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-accent); color: var(--color-text-light);">
-                    <strong>Accent Color</strong>
-                    <p>#e74c3c</p>
-                    <small>Contrast Ratio: 4.5:1</small>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-highlight);">
+                    <strong>Lavender — Background</strong>
+                    <p>#D8D2E1</p>
+                    <small>Navy text on lavender: 6.74:1 — AA</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-neutral); color: var(--color-text-light);">
-                    <strong>Neutral Color</strong>
-                    <p>#34495e</p>
-                    <small>Contrast Ratio: 4.7:1</small>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-accent);">
+                    <strong>Rosy Taupe — Accent</strong>
+                    <p>#B88E8D</p>
+                    <small>Navy text on rose: 3.46:1 — large text only</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-highlight); color: var(--color-text-dark);">
-                    <strong>Highlight Color</strong>
-                    <p>#f1c40f</p>
-                    <small>Contrast Ratio: 4.9:1</small>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-neutral);">
+                    <strong>Dark Navy — Text</strong>
+                    <p>#34435E</p>
+                    <small>Lavender text on navy: 6.74:1 — AA</small>
                 </div>
             </div>
         </section>

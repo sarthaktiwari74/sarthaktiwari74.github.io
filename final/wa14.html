@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Template</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        :root {
+            /* Color Palette - 5 Core Colors */
+             --color-primary: #6369D1;   /* Indigo */
+            --color-secondary: #A8C4CC;; /* Aqua */
+            --color-accent: #B88E8D;    /* Rosy taupe */
+            --color-neutral: #34435E;   /* Dark navy */
+            --color-highlight: #D8D2E1; /* Lavender */
+
+            /* Derived Colors for Flexibility */
+             --color-background: var(--color-highlight);
+            --color-text-dark: var(--color-neutral);
+            --color-text-light: var(--color-highlight);
+
+            /* Typography */
+            --font-primary: "proxima-soft", sans-serif;
+            --font-secondary: "omnes-pro", sans-serif;
+
+            /* Spacing System */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            padding: var(--spacing-xl);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Typography Styles */
+        h1 {
+            font-size: 1.953125rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-primary);
+        }
+
+        h2 {
+            font-size: 1.5625rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-neutral);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-neutral);
+        }
+
+        .body-text {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .small-text, small {
+            font-size: 0.8rem;
+            color: var(--color-neutral);
+        }
+            
+        h1, h2, h3 {
+             font-family: var(--font-secondary);
+             font-weight: 700;
+             }
+        /* Color Palette Section */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .color-swatch {
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-neutral);
+            border-top-width: 5rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            outline: 1px solid var(--color-neutral);
+        }
+
+        /* Component Styles */
+        .button {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--color-neutral);
+            color: var(--color-text-light);
+            font: inherit;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: background-color 0.3s ease, transform 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .button:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-neutral);
+            border-color: var(--color-neutral);
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+            background-color: var(--color-secondary);
+            color: var(--color-neutral);
+        }
+
+        .link {
+            color: var(--color-neutral);
+            text-decoration: underline;
+            transition: color 0.3s ease, text-decoration-color 0.3s;
+        }
+
+        .link:hover {
+            color: var(--color-neutral);
+            text-decoration: underline;
+            text-decoration-color: currentColor;
+            text-decoration-thickness: 3px;
+        }
+
+        .link:visited {
+            color: color-mix(in srgb, var(--color-primary) 40%, var(--color-neutral));
+        }
+
+        .link.standard-link:visited {
+            color: var(--color-neutral);
+        }
+
+        label {
+            display: block;
+            margin-top: var(--spacing-md);
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            max-width: 20rem;
+            margin-top: var(--spacing-xs);
+            padding: var(--spacing-xs);
+            font: inherit;
+            color: var(--color-text-dark);
+            background-color: var(--color-background);
+            border: 2px solid var(--color-neutral);
+            border-radius: var(--radius-sm);
+        }
+
+        .button:focus-visible,
+        .link:focus-visible,
+        input:focus-visible {
+            outline: 3px solid var(--color-neutral);
+            outline-offset: 4px;
+        }
+
+        /* Spacing Demonstration */
+        .spacing-demo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .spacing-block {
+            background-color: var(--color-primary);
+            height: 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://use.typekit.net/gst7grw.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Design System Template</h1>
+
+                <section>
+            <h2>Color Palette</h2>
+
+            <div class="color-palette">
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-primary);">
+                    <strong>Indigo — Primary</strong>
+                    <p>#6369D1</p>
+                    <small>On lavender: 3.18:1 — large text only</small>
+                </div>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-secondary);">
+                        <strong>Soft Blue — Secondary</strong>
+                    <p>#A8C4CC</p>
+                    <small>Navy text on soft blue: 5.42:1 — AA</small>
+                </div>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-highlight);">
+                    <strong>Lavender — Background</strong>
+                    <p>#D8D2E1</p>
+                    <small>Navy text on lavender: 6.74:1 — AA</small>
+                </div>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-accent);">
+                    <strong>Rosy Taupe — Accent</strong>
+                    <p>#B88E8D</p>
+                    <small>Navy text on rose: 3.46:1 — large text only</small>
+                </div>
+
+                <div class="color-swatch"
+                     style="border-top-color: var(--color-neutral);">
+                    <strong>Dark Navy — Text</strong>
+                    <p>#34435E</p>
+                    <small>Lavender text on navy: 6.74:1 — AA</small>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Typography</h2>
+            <h1>Heading 1 - Omnes</h1>
+            <h2>Heading 2 - Omnes</h2>
+            <h3>Heading 3 - Omnes</h3>
+            <p class="body-text">Body Text - Using Proxima Soft with a comfortable line height and readable size.</p>
+            <p class="small-text">Small Text - Subtle and understated, perfect for annotations and footnotes.</p>
+        </section>
+
+        <section>
+            <h2>Spacing System</h2>
+            <div class="spacing-demo">
+                <div class="spacing-block" style="width: var(--spacing-xs)"></div>
+                <div class="spacing-block" style="width: var(--spacing-sm)"></div>
+                <div class="spacing-block" style="width: var(--spacing-md)"></div>
+                <div class="spacing-block" style="width: var(--spacing-lg)"></div>
+                <div class="spacing-block" style="width: var(--spacing-xl)"></div>
+            </div>
+            <p>Spacing blocks: XS 8px, SM 16px, MD 24px, LG 32px, XL 48px.</p>
+        </section>
+
+        <section>
+            <h2>Interactive Components</h2>
+            <button type="button" class="button">Primary Button</button>
+            <a href="https://fonts.adobe.com/fonts/proxima-soft" class="link standard-link">Standard Link</a>
+            <a href="https://fonts.adobe.com/fonts/omnes" class="link">Visited Link (click and return)</a>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name">
+        </section>
+    </div>
+</body>
+</html>
